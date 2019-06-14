@@ -3,9 +3,9 @@ class Game
 
 	MAX_ERRORS = 7
 
-	def initialize(params)
-		@version = params[:version]
-		@word = params[:word]
+	def initialize(word:, version: nil)
+		@version = version
+		@word = word
 
 		@letters = get_letters(word)
 		@good_letters = []

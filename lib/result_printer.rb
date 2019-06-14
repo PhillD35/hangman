@@ -9,7 +9,7 @@ class ResultPrinter
 			if File.exist?(file_name)
 				@status_image << File.read(file_name)
 			else
-				@status_image << "\n[Изображение не найдено ]\n"
+				@status_image << "\n[Изображение не найдено]\n"
 			end
 			counter += 1
 		end
@@ -17,17 +17,24 @@ class ResultPrinter
 
 	def  print_status(game)
 		cls
-		puts game.version
+
+		puts game.version unless game.version.nil?
+
 		puts "\nСлово: " + get_word_for_print(game.letters, game.good_letters)
 		puts "Ошибки (#{game.errors}): #{game.bad_letters.join(", ")}"
+
 		print_viselitsa(game.errors)
 
+		print_status_message(game)
+	end
+
+	def print_status_message(game)
 		if game.lost?
 			puts "Вы проиграли :( Загаданное слово: #{game.word}"
 		elsif game.won?
-				puts "Поздравляем! Вы выиграли!\n\n"
+			puts "Поздравляем! Вы выиграли!\n\n"
 		else
-				puts "У вас осталось попыток: #{game.errors_left}"
+			puts "У вас осталось попыток: #{game.errors_left}"
 		end
 	end
 

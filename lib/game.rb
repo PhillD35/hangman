@@ -1,14 +1,13 @@
 class Game
-	attr_reader :errors, :bad_letters, :good_letters, :letters, :status
-
-	attr_accessor :version
+	attr_reader :errors, :bad_letters, :good_letters, :letters, :status, :version, :word
 
 	MAX_ERRORS = 7
 
 	def initialize(params)
-		version = params[:version]
+		@version = params[:version]
+		@word = params[:word]
 
-		@letters = get_letters(params[:word])
+		@letters = get_letters(word)
 		@good_letters = []
 		@bad_letters = []
 

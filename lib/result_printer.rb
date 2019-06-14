@@ -23,7 +23,7 @@ class ResultPrinter
 		print_viselitsa(game.errors)
 
 		if game.lost?
-			puts "Вы проиграли :("
+			puts "Вы проиграли :( Загаданное слово: #{game.word}"
 		elsif game.won?
 				puts "Поздравляем! Вы выиграли!\n\n"
 		else

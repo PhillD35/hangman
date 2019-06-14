@@ -7,11 +7,14 @@ if (Gem.win_platform?)
   end
 end
 
-VERSION = "Игра \"Виселица.\" версия 4.0.\n\n"
-
 require_relative "lib/game"
 require_relative "lib/result_printer"
 require_relative "lib/word_reader"
+require_relative "lib/words_generator"
+
+WordsGenerator.create_list if ARGV[0] == '-new'
+
+VERSION = "Игра \"Виселица.\" версия 4.0.\n\n"
 
 word = WordReader.read_from_file("#{__dir__}/data/words.txt")
 game = Game.new(word: word, version: VERSION)

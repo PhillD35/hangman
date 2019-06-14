@@ -41,13 +41,13 @@ class Game
 
 	def ask_next_letter
 		puts "\nВведите следующую букву"
-		letter = ""
+		input = ""
 
-		while letter == "" do
-			letter = STDIN.gets.chomp.downcase
+		while input == "" do
+			input = STDIN.gets.chomp.downcase
 		end
 
-		next_step(letter)
+		input.each_char { |char| next_step(char) }
 	end
 
 	def repeted?(letter)
@@ -89,6 +89,7 @@ class Game
 			add_letter_to(@bad_letters, letter)
 			@errors += 1
 		end
+
 		@status = :lost if lost?
 	end
 end

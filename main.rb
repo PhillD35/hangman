@@ -12,11 +12,12 @@ require_relative "lib/result_printer"
 require_relative "lib/word_reader"
 require_relative "lib/words_generator"
 
-WordsGenerator.create_list if ARGV[0] == '-new'
+WORDS_FILE_PATH = "#{__dir__}/data/words.txt".freeze
+VERSION = "Игра \"Виселица.\" версия 4.0.\n\n".freeze
 
-VERSION = "Игра \"Виселица.\" версия 4.0.\n\n"
+WordsGenerator.create_list(WORDS_FILE_PATH) if ARGV[0] == '-new'
 
-word = WordReader.read_from_file("#{__dir__}/data/words.txt")
+word = WordReader.read_from_file(WORDS_FILE_PATH)
 game = Game.new(word: word, version: VERSION)
 
 printer = ResultPrinter.new(game)

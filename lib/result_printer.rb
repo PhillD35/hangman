@@ -1,9 +1,8 @@
 class ResultPrinter
   def initialize(game)
     @status_image = []
-    counter = 0
 
-    while counter <= game.max_errors do
+    (0..game.max_errors).each do |counter|
       file_name = "#{__dir__}/../images/#{counter}.txt"
 
       if File.exist?(file_name)
@@ -11,7 +10,6 @@ class ResultPrinter
       else
         @status_image << "\n[Изображение не найдено]\n"
       end
-      counter += 1
     end
   end
 

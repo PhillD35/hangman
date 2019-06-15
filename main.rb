@@ -22,8 +22,8 @@ game = Game.new(word: word, version: VERSION)
 printer = ResultPrinter.new(game)
 
 while game.in_progress? do
-	printer.print_status(game)
-	game.ask_next_letter
+  printer.print_status(game)
+  game.ask_next_letter
 end
 
 printer.print_status(game)

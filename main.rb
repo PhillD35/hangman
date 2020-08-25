@@ -15,7 +15,10 @@ require_relative "lib/words_generator"
 WORDS_FILE_PATH = "#{__dir__}/data/words.txt".freeze
 VERSION = "Игра \"Виселица.\" версия 4.0.\n\n".freeze
 
-WordsGenerator.create_list(WORDS_FILE_PATH) if ARGV[0] == '-new'
+system 'mkdir data' unless Dir.exist?("#{__dir__}/data")
+WordsGenerator.create_list(WORDS_FILE_PATH) unless File.exist?(WORDS_FILE_PATH)
+
+WordsGenerator.create_list(WORDS_FILE_PATH) if ARGV[0] == '-n'
 
 word = WordReader.read_from_file(WORDS_FILE_PATH)
 game = Game.new(word: word, version: VERSION)

@@ -3,10 +3,10 @@ class ResultPrinter
     @status_image = []
 
     (0..game.max_errors).each do |counter|
-      file_name = "#{__dir__}/../images/#{counter}.txt"
+      file_path = "#{__dir__}/../images/#{counter}.txt"
 
-      if File.exist?(file_name)
-        @status_image << File.read(file_name)
+      if File.exist?(file_path)
+        @status_image << File.read(file_path)
       else
         @status_image << "\n[Изображение не найдено]\n"
       end

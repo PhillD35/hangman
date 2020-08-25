@@ -20,8 +20,6 @@ class WordsGenerator
   end
 
   def self.save_words(words:, file_path:)
-    File.open(file_path, 'w:UTF-8') do |file|
-      file.puts(words)
-    end
+    File.open(file_path, 'w:UTF-8') { |file| file.puts(words) }
   end
 end

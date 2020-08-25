@@ -25,7 +25,7 @@ bundle exec ruby main.rb
 Создать новый список слов
 
 ````
-bundle exec ruby main.rb -new
+bundle exec ruby main.rb -n
 ````
 
 ### Назначение файлов
@@ -39,7 +39,5 @@ bundle exec ruby main.rb -new
 **lib/words_generator.rb** - создаёт новый список слов. Слова берёт из толкового словаря Даля http://litmaster.net/index.php?book=3/
 
 **lib/word_reader.rb** - вытягивает случайное слово из списка слов
-
-**data/words.txt** - список слов
 
 **imagex/1.txt..7.txt** - псевдографика Виселицы
